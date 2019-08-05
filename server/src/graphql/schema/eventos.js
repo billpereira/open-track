@@ -6,10 +6,23 @@ module.exports = {
     descricao: String!
   }
 `,
+  SlotInput: `
+    input SlotInput {
+    titulo: String!
+    horario: String!
+    descricao: String!
+  }
+`,
   Trilha: `
     type Trilha {
     nome: String!
     slot: [Slot!]!
+  }
+`,
+  TrilhaInput: `
+    input TrilhaInput {
+    nome: String!
+    slot: [SlotInput!]!
   }
 `,
   Evento: `
@@ -26,7 +39,7 @@ module.exports = {
     nomeDoEvento: String!
     local: String!
     descricao: String!
-    trilhas: [Trilha!]!
+    trilhas: [TrilhaInput!]!
     }
   `,
 };

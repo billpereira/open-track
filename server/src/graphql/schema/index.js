@@ -5,6 +5,8 @@ const {
   Trilha,
   Evento,
   EventoInput,
+  SlotInput,
+  TrilhaInput,
 } = require('./eventos');
 
 module.exports = buildSchema(`
@@ -20,6 +22,8 @@ module.exports = buildSchema(`
   ${Evento}
 
   ${EventoInput}
+  ${TrilhaInput}
+  ${SlotInput}
 
   type RootQuery {
     users: [User]!
