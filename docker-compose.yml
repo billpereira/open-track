@@ -4,10 +4,12 @@ services:
     image: mongo:latest
     ports:
       - "27017:27017"
-    volumes: 
+    volumes:
       - ./data:/data/db
   server:
-    build: 
+    depends_on:
+      - mongo
+    build:
       dockerfile: Dockerfile.dev
       context: ./server
     ports:
@@ -17,3 +19,12 @@ services:
       - ./server:/app
     links:
       - mongo
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - ./client:/app
